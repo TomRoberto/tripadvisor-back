@@ -12,6 +12,12 @@ const mailgun = require("mailgun-js")({
   domain: process.env.MAIL_GUN_DOMAIN,
 });
 
+app.get("/", (req, res) => {
+  res
+    .status(200)
+    .json({ message: "Bienvenue sur mon serveur basé sur heroku" });
+});
+
 app.post("/form", (req, res) => {
   const { name, lastname, email, subject, message } = req.fields;
   const data = {
